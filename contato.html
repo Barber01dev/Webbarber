@@ -112,7 +112,7 @@
                 const horario = document.querySelector("select").value;
         
                 // Envia os dados para o back-end
-                const resposta = await fetch("", {
+                const resposta = await fetch("http://localhost:5000/agendar", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
