@@ -3,5 +3,5 @@ services:
     name: barbearia-backend
     runtime: python
     buildCommand: ""
-    startCommand: "python app.py"
+    startCommand: "python app.py.py"
     env: python
