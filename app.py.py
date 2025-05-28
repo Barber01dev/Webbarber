@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import smtplib
 from email.mime.text import MIMEText
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -15,7 +16,6 @@ def agendar():
 
     corpo = f"Novo agendamento:\n\nNome: {nome}\nE-mail: {email_cliente}\nHorário: {horario}"
 
-    # CONFIGURAÇÕES SMTP (exemplo com Gmail)
     remetente = "jotaprxdx19@gmail.com"
     senha = "tnog asiu tekm jdkg"  # Use senha de app do Gmail
     destinatario = "flawlexx00@gmail.com"
@@ -34,6 +34,6 @@ def agendar():
     except Exception as e:
         return jsonify({"erro": str(e)}), 500
 
-# Inicia o app no Render
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=10000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
